@@ -10,7 +10,7 @@ llm = Bedrock(
     model_id = "anthropic.claude-instant-v1",
     region_name = "us-east-1",
     model_kwargs = {
-        "max_tokens_to_sample": 3000, 
+        "max_tokens_to_sample": 4000, 
         "temperature": 0, 
         "top_k": 10
     })

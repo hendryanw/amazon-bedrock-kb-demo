@@ -25,7 +25,7 @@ input_text = st.chat_input("Chat with your bot here")
 
 # The following code are executed when the question is submitted
 if input_text: 
-    # Display the user question in the chat interface and store it in the memory
+    # Display the user question in the chat interface and store it in the chat history
     with st.chat_message("user"):
         st.markdown(input_text)
 
@@ -50,5 +50,5 @@ if input_text:
                 s3_presigned_url, bucket_name, object_key = s3_helper.generate_presigned_url(metadata['location']['s3Location']['uri'])
                 st.markdown('**[**' + f"**{url_count}**" + '**]**' + ' ' + f"**[{object_key}]({s3_presigned_url})**" + '  \n' + document.page_content[:250])
     
-    # Store the LLM answer in the memory
+    # Store the LLM answer in the chat history
     st.session_state.chat_history.append({"role": "assistant", "text": answer})
