@@ -2,7 +2,7 @@ import streamlit as st
 import lib as glib
 import s3_uri_helper as s3_helper
 
-bedrock_kb = "ABCD1234AB" # Update your Amazon Bedrock Knowledge Bases ID here
+bedrock_kb = "K2NUJDLGRK" # Update your Amazon Bedrock Knowledge Bases ID here
 retriever = glib.get_retriever(bedrock_kb)
 
 if 'memory' not in st.session_state:
@@ -42,7 +42,7 @@ if input_text:
     # Also display the source documents URLs and snippets
     with st.chat_message("assistant"):
         st.markdown(answer)
-        with st.expander("See references"): #display the references
+        with st.expander(label = "View source documents"): #display the references
             url_count = 0
             for document in chat_response['source_documents']:
                 url_count = url_count + 1
